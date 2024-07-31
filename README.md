@@ -26,10 +26,11 @@ El requisito mínimo para este proyecto es que tu servidor Web soporte PHP 7.4.
 
 ## INSTALACIÓN
 
-### Instalación desde Git
+### Instalación desde Git y Composer
 
 Clona el repositorio y navega al directorio del proyecto:
 
 ```bash
 git clone https://github.com/jacarbajalt/sistemaPuntoVenta.git
 cd sistemaPuntoVenta
+composer install
