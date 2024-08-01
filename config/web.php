@@ -50,8 +50,6 @@ $config = [
             'showScriptName' => false,
             'rules' => [
                 '<alias:\w+>' => 'login/<alias>',
-                ['class'=>'yii\rest\UrlRule', 'controller'=>'contribuyente-rest'],
-                ['class' => 'yii\rest\UrlRule', 'controller' => 'contacto-rest'],
             ],
         ],
         
