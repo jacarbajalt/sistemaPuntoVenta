@@ -11,17 +11,21 @@ $config = [
         '@bower' => '@vendor/bower-asset',
         '@npm'   => '@vendor/npm-asset',
     ],
+    'timeZone' => 'America/Mexico_City',
     'components' => [
         
         'request' => [
             // !!! insert a secret key in the following (if it is empty) - this is required by cookie validation
             'cookieValidationKey' => 'YDzdNnm5TfL8othvI01ldUgEGVwBm0x8',
+            'parsers'=>[
+                'application/json'=>'yii\web\JsonParser',
+            ],
         ],
         'cache' => [
             'class' => 'yii\caching\FileCache',
         ],
         'user' => [
-            'identityClass' => 'app\models\User',
+            'identityClass' => 'app\models\Usuario',
             'enableAutoLogin' => true,
             'loginUrl' => ['login'],
         ],

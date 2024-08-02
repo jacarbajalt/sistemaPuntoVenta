@@ -9,6 +9,7 @@ use yii\bootstrap5\Breadcrumbs;
 use yii\bootstrap5\Html;
 use yii\bootstrap5\Nav;
 use yii\bootstrap5\NavBar;
+use yii\web\View;
 
 AppAsset::register($this);
 
@@ -18,6 +19,8 @@ $this->registerMetaTag(['name' => 'viewport', 'content' => 'width=device-width, 
 $this->registerMetaTag(['name' => 'description', 'content' => $this->params['meta_description'] ?? '']);
 $this->registerMetaTag(['name' => 'keywords', 'content' => $this->params['meta_keywords'] ?? '']);
 $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/x-icon', 'href' => Yii::getAlias('@web/favicon.ico')]);
+$this->registerJsFile('https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.all.min.js', ['position' => View::POS_END]);
+$this->registerCssFile('https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css');
 ?>
 <?php $this->beginPage() ?>
 <!DOCTYPE html>
@@ -25,6 +28,7 @@ $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/x-icon', 'href' => Yii
 <head>
     <title><?= Html::encode($this->title) ?></title>
     <?php $this->head() ?>
+    <script src="https://kit.fontawesome.com/b5c7161fc1.js" crossorigin="anonymous"></script>
 </head>
 <body class="d-flex flex-column h-100">
 <?php $this->beginBody() ?>
@@ -33,20 +37,19 @@ $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/x-icon', 'href' => Yii
     <?php if (!Yii::$app->user->isGuest): ?>
         <?php
         NavBar::begin([
-            'brandLabel' => Yii::$app->name,
+            'brandLabel' => 'Punto de Venta',
             'brandUrl' => Yii::$app->homeUrl,
             'options' => ['class' => 'navbar-expand-md navbar-dark bg-dark fixed-top']
         ]);
         echo Nav::widget([
             'options' => ['class' => 'navbar-nav'],
+            'encodeLabels' => false,
             'items' => [
-                ['label' => 'Home', 'url' => ['/site/index']],
-                ['label' => 'About', 'url' => ['/site/about']],
-                ['label' => 'Contact', 'url' => ['/site/contact']],
+                ['label' => '<i class="fas fa-home"></i> Inicio', 'url' => ['/site/index']],
                 '<li class="nav-item">'
                     . Html::beginForm(['login/logout'])
                     . Html::submitButton(
-                        'Logout (' . Yii::$app->user->identity->username . ')',
+                        '<i class="fas fa-sign-out-alt"></i> Salir (' . Yii::$app->user->identity->NombreCompleto . ')',
                         ['class' => 'nav-link btn btn-link logout']
                     )
                     . Html::endForm()

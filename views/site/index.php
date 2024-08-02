@@ -1,9 +1,12 @@
 <?php
 
 /** @var yii\web\View $this */
-
+use yii\web\View;
 $this->title = 'My Yii Application';
+$this->registerJsFile(Yii::$app->HomeUrl.'js/general/inicio.js', ['depends' => [yii\web\JqueryAsset::className()]]); 
 ?>
+
+
 <div class="site-index">
 
     <div class="jumbotron text-center bg-transparent mt-5 mb-5">
