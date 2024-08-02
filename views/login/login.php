@@ -34,7 +34,7 @@ $this->title = 'Login';
 
             <div class="form-group mb-4">
                 <?= $form->field($model, 'password')->passwordInput([
-                    'placeholder' => 'Clave',
+                    'placeholder' => 'Contraseña',
                 ])->label(false) ?>
             </div>
 
