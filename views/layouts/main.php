@@ -74,14 +74,16 @@ $this->registerCssFile('https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetal
     </div>
 </main>
 
+<footer class="bg-body-tertiary text-center">
+  <!-- Grid container -->
+  <div class="container p-4"></div>
+  <!-- Grid container -->
 
-<footer id="footer" class="mt-auto py-3 bg-light">
-    <div class="container-fluid">
-        <div class="row text-muted">
-            <div class="col-md-6 text-center text-md-start">&copy; My Company <?= date('Y') ?></div>
-            <div class="col-md-6 text-center text-md-end"><?= Yii::powered() ?></div>
-        </div>
-    </div>
+  <!-- Copyright -->
+  <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.05);">
+    <a class="text-body">&copy; ASTRA IT <?= date('Y') ?></a>
+  </div>
+  <!-- Copyright -->
 </footer>
 
 <?php $this->endBody() ?>

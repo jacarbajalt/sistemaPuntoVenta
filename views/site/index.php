@@ -3,9 +3,40 @@
 /** @var yii\web\View $this */
 use yii\web\View;
 $this->title = 'My Yii Application';
-$this->registerJsFile(Yii::$app->HomeUrl.'js/general/inicio.js', ['depends' => [yii\web\JqueryAsset::className()]]); 
 ?>
 
+<?php 
+$session = Yii::$app->session;
+$usuario = $session->get('usuario', 'Usuario');
+if ($session->isActive) {
+    // Verifica si la variable de sesión 'alert_shown' no está establecida
+    if (!$session->has('alert_shown')) {
+        $frases = [
+            '¡Que tengas un excelente día!',
+            'Estamos felices de tenerte con nosotros.',
+            '¡Gracias por visitarnos!',
+            'Esperamos que disfrutes tu experiencia.',
+            '¡Tu presencia es importante para nosotros!'
+        ];
+        // Selecciona una frase aleatoria
+        $fraseAleatoria = $frases[array_rand($frases)];
+        $js = <<<JS
+        $(document).ready(function() {
+            Swal.fire({
+                title: '¡Bienvenido, $usuario!',
+                text: '$fraseAleatoria',
+                icon: 'info',
+                confirmButtonText: 'OK'
+            });
+        });
+        JS;
+        $this->registerJs($js);
+
+        // Define una acción en el controlador para establecer la variable de sesión
+        $session->set('alert_shown', true);
+    }
+}
+?>
 
 <div class="site-index">
 

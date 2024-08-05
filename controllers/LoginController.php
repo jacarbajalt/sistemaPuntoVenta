@@ -67,12 +67,9 @@ class LoginController extends Controller
             $session->set('estatus', $model->getUser()->usuario_estatus);
             $usuario = Usuario::findOne(Yii::$app->user->getId());
             $usuario->usuario_ultimo_acceso=Date('Y-m-d H:i:s');
-            if ($usuario->save()) {
-                return $this->redirect(['/site/index']);
-            } else {
-                error_log(print_r($usuario, true));
-            }
-            
+            $usuario->save();
+            return $this->redirect(['/site/index']);
+            Yii::info('Inicio de Sesion Correcto: '.$session, 'app');
         }
 
         $model->password = '';

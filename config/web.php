@@ -13,7 +13,14 @@ $config = [
     ],
     'timeZone' => 'America/Mexico_City',
     'components' => [
-        
+        'session' => [
+            'class' => 'yii\web\DbSession',
+            // Set the following if you want to use DB component other than
+            // default 'db'.
+            'db' => 'db',
+            'cookieParams' => ['lifetime' => 28800], #La sesión caduca pasadas las 8 horas de inactividad (Una jornada laboral)
+            'timeout' => 28800,
+        ],
         'request' => [
             // !!! insert a secret key in the following (if it is empty) - this is required by cookie validation
             'cookieValidationKey' => 'YDzdNnm5TfL8othvI01ldUgEGVwBm0x8',
