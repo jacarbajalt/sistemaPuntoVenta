@@ -10,6 +10,7 @@ use yii\bootstrap5\Html;
 use yii\bootstrap5\Nav;
 use yii\bootstrap5\NavBar;
 use yii\web\View;
+use app\utilidades\Utilidades;
 
 AppAsset::register($this);
 
@@ -74,16 +75,17 @@ $this->registerCssFile('https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetal
     </div>
 </main>
 
-<footer class="bg-body-tertiary text-center">
-  <!-- Grid container -->
-  <div class="container p-4"></div>
-  <!-- Grid container -->
-
-  <!-- Copyright -->
-  <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.05);">
-    <a class="text-body">&copy; ASTRA IT <?= date('Y') ?></a>
-  </div>
-  <!-- Copyright -->
+<footer id="footer" class="mt-auto py-3 bg-light">
+    <div class="container-fluid">
+        <div class="row text-muted">
+            <div class="col-md-6 text-center text-md-start">&copy; <?php echo date('Y') . ' ' . Utilidades::EMPRESA; ?></div>
+            <div class="col-md-6 text-center text-md-end">
+                <a href="https://api.whatsapp.com/send?phone=522212958873" class="float" target="_blank" title="¿Necesita ayuda?, ¡Estamos para servirle!.">Atención a Clientes
+                    <i class="fab fa-whatsapp"></i>
+                </a>
+            </div>
+        </div>
+    </div>
 </footer>
 
 <?php $this->endBody() ?>
